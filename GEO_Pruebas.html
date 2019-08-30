@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <title>Ejemplo GEOLOCALIZACIÓN</title>
+    <script type="text/javascript">
+      
+      //  Defino un apuntador al "seguimiento":
+      var seguimiento = null;
+      
+      function Ejemplo() {
+      	var info = document.getElementById("info");
+      	//  Nos definimos las opciones:
+      	var opciones = {
+      		enableHighAccuracy: true,  //  por defecto es false
+      		maximumAge: 2000,  //  El tiempo máximo (en milisegundos) de la lectura 
+      		timeout: 30000  //  El tiempo máximo (en milisegundos) para el que está dispuesto a permitir obtener la posición.
+      	}
+      	if (navigator.geolocation) {
+      		var geo = navigator.geolocation;
+					
+					info.innerHTML = "Datos de geo: <br><br>";
+					for (var i in geo)
+						info.innerHTML += i + "  ==>  " + geo[i] + " <br> ";
+						
+					info.innerHTML += "<br><br><br>";
+					alert("estos son los datos de geo.")
+					
+					geo.getCurrentPosition(muestraLoc, muestraErr, opciones);
+			//		seguimiento = geo.watchPosition(muestraLoc, muestraErr, opciones);
+					
+      	}
+      }
+      
+      function muestraLoc(pos) {
+				var info = document.getElementById("info");
+				info.innerHTML += "Datos de pos.coords: <br><br>";
+					for (var i in pos.coords)
+						info.innerHTML += i + "  ==>  " + pos.coords[i] + " <br> ";
+      }
+      
+      function muestraErr(error) {
+      	document.getElementById("info").innerHTML += "<br /> Ha habido un ERROR: " + error.code;
+      }
+      
+			
+			window.onload = function(){
+				document.getElementById("btVer").onclick = Ejemplo;
+			}
+			
+      
+    </script>
+  </head>
+  
+  <body>
+    <h3>Objeto </h3>
+    <button type="button" id="btVer">Ver datos del objeto</button> 
+    
+    <p>
+    	<div id="info">
+    		Aquí ponemos la información
+    	</div>
+    </p>
+    
+  </body>
+</html>
