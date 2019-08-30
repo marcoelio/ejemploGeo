@@ -6,28 +6,6 @@
     <title>Ejemplo GEOLOCALIZACIÓN</title>
     <script type="text/javascript">
       
-      /*
-
-       Hay dos métodos que puedes utilizar: 
-       
-       	getCurrentPosition() y watchPosition().
-
-GetCurrentPosition() es un one-shot: recupera información de la ubicación del usuario
-											una vez y eso es todo. Este es el que usaremos.
-										 
-WatchPosition() es para el seguimiento del usuario. 
-											A este  se le  llama continuamente y devuelve nuevos resultados 
-											cada vez que el usuario cambia de posición.
-
-			Ambas funciones hacen uso de las devoluciones de llamada o callbacks. 
-			Callbacks son sólo nombres de otras funciones 
-			que se pasan como parámetros en una llamada a un método.
-
-			Es necesario especificar dos funciones de devolución de llamada 
-			en la llamada a getCurrentPosition – una para el éxito y otra de fracaso.
-
-       */
-      
       //  Defino un apuntador al "seguimiento":
       var seguimiento = null;
       
