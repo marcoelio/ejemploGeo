@@ -17,14 +17,9 @@
       		maximumAge: 1000,  //  El tiempo máximo (en milisegundos) de la lectura 
       		timeout: 30000  //  El tiempo máximo (en milisegundos) para el que está dispuesto a permitir obtener la posición.
       	}
-      	if (navigator.geolocation) {
-      		info.innerHTML = "El navegador SOPORTA la GEOLOCALIZACIÓN";
-      		var geo = navigator.geolocation;
-      		seguimiento = geo.watchPosition(muestraLoc, muestraErr, opciones);
+				var geo = navigator.geolocation;
+				seguimiento = geo.watchPosition(muestraLoc, muestraErr, opciones);
       		
-      	} else {
-      		info.innerHTML = "Lo Sentimos. El navegador NO SOPORTA la GEOLOCALIZACIÓN";
-      	}
       }
       
       function muestraLoc(pos) {
@@ -61,6 +56,7 @@
 				document.getElementById("btEjemplo").onclick = Ejemplo;
 				document.getElementById("btParar").onclick = Parar;
 			}
+			//  Esto es un comentario final.
 			
       
     </script>
